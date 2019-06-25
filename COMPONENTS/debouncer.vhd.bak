@@ -1,0 +1,15 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity debouncer is
+	port (
+			clk       : in std_logic;
+			trig   	 : in BIT;
+			buz   	 : out BIT
+	);
+end dsf_timer;
+
+architecture arch of debouncer is
+begin
+	
+end debouncer;
