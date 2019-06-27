@@ -59,6 +59,13 @@ applicable agreement for further details.
 		(line (pt 0 96)(pt 16 96)(line_width 1))
 	)
 	(port
+		(pt 0 112)
+		(input)
+		(text "trigger" (rect 0 0 24 12)(font "Arial" ))
+		(text "trigger" (rect 21 107 45 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
 		(pt 184 32)
 		(output)
 		(text "duty_cycle" (rect 0 0 44 12)(font "Arial" ))

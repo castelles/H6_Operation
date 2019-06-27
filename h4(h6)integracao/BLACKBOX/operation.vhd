@@ -29,6 +29,7 @@ ENTITY operation IS
 		clk_fpga :  IN  STD_LOGIC;
 		door :  IN  STD_LOGIC;
 		enable :  IN  STD_LOGIC;
+		trigger :  IN  STD_LOGIC;
 		duty_cycle :  OUT  STD_LOGIC;
 		in1 :  OUT  STD_LOGIC;
 		in0 :  OUT  STD_LOGIC;
@@ -127,7 +128,6 @@ SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
 
 
 BEGIN
-duty_cycle <= SYNTHESIZED_WIRE_2;
 
 
 
@@ -148,7 +148,7 @@ PORT MAP(en4 => enable,
 
 b2v_inst1 : dsf_timer
 PORT MAP(clk => SYNTHESIZED_WIRE_1,
-		 trig => SYNTHESIZED_WIRE_2,
+		 trig => trigger,
 		 buz => buzzer);
 
 
