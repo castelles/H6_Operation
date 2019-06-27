@@ -73,7 +73,6 @@ set_global_assignment -name VHDL_FILE dsf_timer.vhd
 set_global_assignment -name VHDL_FILE div_freq.vhd
 set_global_assignment -name VHDL_FILE debouncer.vhd
 set_global_assignment -name VHDL_FILE ctrl_operation.vhd
-set_global_assignment -name BDF_FILE motor.bdf
 set_global_assignment -name VHDL_FILE motor.vhd
 set_global_assignment -name VHDL_FILE One_delay.vhd
 set_global_assignment -name VHDL_FILE led_controller.vhd

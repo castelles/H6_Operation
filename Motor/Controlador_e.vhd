@@ -56,13 +56,15 @@ entity Controlador_e is
 			clk         : in std_logic;
 			remote      : in std_logic;   --definido como chave apenas para teste
 			local       : in std_logic;	--definido como chave apenas para teste
+			door_state	: in std_logic;
 			sp 			: out std_logic;
 			rt				: out std_logic;
 			load   		: out std_logic;
 			en_count		: out std_logic;
 			speed_low   : out std_logic_vector(7 downto 0) := "01100110";
 			speed_high  : out std_logic_vector(7 downto 0) := "11111111";
-			led_enable  : out std_logic := '0'
+			led_enable  : out std_logic := '0';
+			led_door		: out std_logic
 		 );
 end Controlador_e;
 
@@ -77,7 +79,7 @@ begin
 				state_controller <= standby;
 				led_enable <= '0';
 			elsif rising_edge(clk) then    -- MUDAR PARA BORDA DE DESCIDA!!!!!!!!!
-				
+				led_door <= door_state;
 				case state_controller is   
 					
 					when standby => if en4 = '1' and  remote = '0' and local = '0' then    -- COM O NOVO DIAGRAMA

@@ -4,12 +4,29 @@ use ieee.std_logic_1164.all;
 entity dsf_timer is
 	port (
 			clk       : in std_logic;
-			trig   	 : in BIT;
-			buz   	 : out BIT
+			trig   	 : in std_logic;
+			buz   	 : buffer std_logic
 	);
 end dsf_timer;
 
 architecture arch of dsf_timer is
+
+variable counter : integer range 0 to 1000 := 0;
+
 begin
-	
+	process(clk)
+		begin
+		
+			if rising_edge(clk) and trig = '1' then
+				buz <= '1';
+			end if;
+			
+			if buz = '1' and counter < 1000 then
+				counter := counter + 1;
+			elsif buz = '1' and counter >= 1000 then
+				counter := 0;
+				buz <= '0';
+			end if;
+		
+		end process;
 end arch;

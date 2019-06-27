@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 32-bit"
 -- VERSION		"Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
--- CREATED		"Wed Jun 26 09:36:49 2019"
+-- CREATED		"Thu Jun 27 17:35:13 2019"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -24,14 +24,16 @@ LIBRARY work;
 ENTITY motor IS 
 	PORT
 	(
-		clk_ctrl :  IN  STD_LOGIC;
-		clk_30KHz :  IN  STD_LOGIC;
-		en4 :  IN  STD_LOGIC;
 		remote :  IN  STD_LOGIC;
 		local :  IN  STD_LOGIC;
+		clk_fpga :  IN  STD_LOGIC;
+		door :  IN  STD_LOGIC;
+		enable :  IN  STD_LOGIC;
 		duty_cycle :  OUT  STD_LOGIC;
 		in1 :  OUT  STD_LOGIC;
-		in0 :  OUT  STD_LOGIC
+		in0 :  OUT  STD_LOGIC;
+		buzzer :  OUT  STD_LOGIC;
+		led_door :  OUT  STD_LOGIC
 	);
 END motor;
 
@@ -42,13 +44,22 @@ COMPONENT controlador_e
 		 clk : IN STD_LOGIC;
 		 remote : IN STD_LOGIC;
 		 local : IN STD_LOGIC;
+		 door_state : IN STD_LOGIC;
 		 sp : OUT STD_LOGIC;
 		 rt : OUT STD_LOGIC;
 		 load : OUT STD_LOGIC;
 		 en_count : OUT STD_LOGIC;
 		 led_enable : OUT STD_LOGIC;
+		 led_door : OUT STD_LOGIC;
 		 speed_high : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 		 speed_low : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+	);
+END COMPONENT;
+
+COMPONENT dsf_timer
+	PORT(clk : IN STD_LOGIC;
+		 trig : IN STD_LOGIC;
+		 buz : OUT STD_LOGIC
 	);
 END COMPONENT;
 
@@ -87,6 +98,13 @@ COMPONENT comparador_e
 	);
 END COMPONENT;
 
+COMPONENT div_freq
+	PORT(clk_50MHz : IN STD_LOGIC;
+		 clk_1KHz : OUT STD_LOGIC;
+		 clk_30KHz : OUT STD_LOGIC
+	);
+END COMPONENT;
+
 COMPONENT lpm_mux0
 	PORT(sel : IN STD_LOGIC;
 		 data0x : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -95,67 +113,85 @@ COMPONENT lpm_mux0
 	);
 END COMPONENT;
 
-SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_17 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_1 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_13 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_18 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_5 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_11 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_19 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_13 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC_VECTOR(7 DOWNTO 0);
 
 
 BEGIN 
+duty_cycle <= SYNTHESIZED_WIRE_2;
 
 
 
 b2v_inst : controlador_e
-PORT MAP(en4 => en4,
-		 clk => clk_ctrl,
+PORT MAP(en4 => enable,
+		 clk => SYNTHESIZED_WIRE_17,
 		 remote => remote,
 		 local => local,
-		 sp => SYNTHESIZED_WIRE_9,
-		 rt => SYNTHESIZED_WIRE_13,
-		 load => SYNTHESIZED_WIRE_1,
-		 en_count => SYNTHESIZED_WIRE_12,
-		 speed_high => SYNTHESIZED_WIRE_10,
-		 speed_low => SYNTHESIZED_WIRE_11);
+		 door_state => door,
+		 sp => SYNTHESIZED_WIRE_14,
+		 rt => SYNTHESIZED_WIRE_19,
+		 load => SYNTHESIZED_WIRE_5,
+		 en_count => SYNTHESIZED_WIRE_18,
+		 led_door => led_door,
+		 speed_high => SYNTHESIZED_WIRE_15,
+		 speed_low => SYNTHESIZED_WIRE_16);
+
+
+b2v_inst1 : dsf_timer
+PORT MAP(clk => SYNTHESIZED_WIRE_1,
+		 trig => SYNTHESIZED_WIRE_2,
+		 buz => buzzer);
 
 
 b2v_inst10 : lpm_counter0
-PORT MAP(clock => clk_30KHz,
-		 cnt_en => SYNTHESIZED_WIRE_12,
-		 q => SYNTHESIZED_WIRE_8);
+PORT MAP(clock => SYNTHESIZED_WIRE_17,
+		 cnt_en => SYNTHESIZED_WIRE_18,
+		 q => SYNTHESIZED_WIRE_13);
 
 
 b2v_inst2 : dsf_shiftregister
-PORT MAP(load => SYNTHESIZED_WIRE_1,
-		 clk => clk_ctrl,
-		 data => SYNTHESIZED_WIRE_2,
-		 speed_register => SYNTHESIZED_WIRE_7);
+PORT MAP(load => SYNTHESIZED_WIRE_5,
+		 clk => SYNTHESIZED_WIRE_17,
+		 data => SYNTHESIZED_WIRE_7,
+		 speed_register => SYNTHESIZED_WIRE_12);
 
 
 b2v_inst3 : demux_rotation
-PORT MAP(selectRot => SYNTHESIZED_WIRE_13,
-		 enable_rot => SYNTHESIZED_WIRE_12,
+PORT MAP(selectRot => SYNTHESIZED_WIRE_19,
+		 enable_rot => SYNTHESIZED_WIRE_18,
 		 in0 => in0,
 		 in1 => in1);
 
 
 b2v_inst4 : comparador_e
-PORT MAP(en => SYNTHESIZED_WIRE_12,
-		 rotation => SYNTHESIZED_WIRE_13,
-		 a => SYNTHESIZED_WIRE_7,
-		 b => SYNTHESIZED_WIRE_8,
-		 ls => duty_cycle);
+PORT MAP(en => SYNTHESIZED_WIRE_18,
+		 rotation => SYNTHESIZED_WIRE_19,
+		 a => SYNTHESIZED_WIRE_12,
+		 b => SYNTHESIZED_WIRE_13,
+		 ls => SYNTHESIZED_WIRE_2);
+
+
+b2v_inst5 : div_freq
+PORT MAP(clk_50MHz => clk_fpga,
+		 clk_1KHz => SYNTHESIZED_WIRE_1,
+		 clk_30KHz => SYNTHESIZED_WIRE_17);
 
 
 b2v_inst9 : lpm_mux0
-PORT MAP(sel => SYNTHESIZED_WIRE_9,
-		 data0x => SYNTHESIZED_WIRE_10,
-		 data1x => SYNTHESIZED_WIRE_11,
-		 result => SYNTHESIZED_WIRE_2);
+PORT MAP(sel => SYNTHESIZED_WIRE_14,
+		 data0x => SYNTHESIZED_WIRE_15,
+		 data1x => SYNTHESIZED_WIRE_16,
+		 result => SYNTHESIZED_WIRE_7);
 
 
 END bdf_type;
