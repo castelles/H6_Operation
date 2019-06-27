@@ -1,5 +1,5 @@
 Flow report for motor
-Mon May 27 16:34:15 2019
+Thu Jun 27 18:31:15 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Mon May 27 16:33:58 2019           ;
+; Flow Status                        ; Successful - Thu Jun 27 18:30:58 2019           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; motor                                           ;
 ; Top-level Entity Name              ; motor                                           ;
 ; Family                             ; Cyclone IV E                                    ;
 ; Device                             ; EP4CE6E22C8                                     ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 55 / 6,272 ( < 1 % )                            ;
-;     Total combinational functions  ; 51 / 6,272 ( < 1 % )                            ;
-;     Dedicated logic registers      ; 29 / 6,272 ( < 1 % )                            ;
-; Total registers                    ; 29                                              ;
-; Total pins                         ; 19 / 92 ( 21 % )                                ;
+; Total logic elements               ; 126 / 6,272 ( 2 % )                             ;
+;     Total combinational functions  ; 123 / 6,272 ( 2 % )                             ;
+;     Dedicated logic registers      ; 57 / 6,272 ( < 1 % )                            ;
+; Total registers                    ; 57                                              ;
+; Total pins                         ; 10 / 92 ( 11 % )                                ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 276,480 ( 0 % )                             ;
 ; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                                  ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/27/2019 16:33:08 ;
+; Start date & time ; 06/27/2019 18:30:12 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; motor               ;
 +-------------------+---------------------+
@@ -75,9 +75,13 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 0.155898918700098                     ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 0.156167461200151                     ; --            ; --          ; --         ;
 ; IP_TOOL_NAME                        ; LPM_MUX                               ; --            ; --          ; --         ;
 ; IP_TOOL_NAME                        ; LPM_COUNTER                           ; --            ; --          ; --         ;
+; IP_TOOL_NAME                        ; LPM_MUX                               ; --            ; --          ; --         ;
+; IP_TOOL_NAME                        ; LPM_MUX                               ; --            ; --          ; --         ;
+; IP_TOOL_VERSION                     ; 13.0                                  ; --            ; --          ; --         ;
+; IP_TOOL_VERSION                     ; 13.0                                  ; --            ; --          ; --         ;
 ; IP_TOOL_VERSION                     ; 13.0                                  ; --            ; --          ; --         ;
 ; IP_TOOL_VERSION                     ; 13.0                                  ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --         ;
@@ -86,6 +90,10 @@ applicable agreement for further details.
 ; MISC_FILE                           ; lpm_mux0.cmp                          ; --            ; --          ; --         ;
 ; MISC_FILE                           ; lpm_counter0.bsf                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; lpm_counter0.cmp                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; lpm_mux1.bsf                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; lpm_mux1.cmp                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; lpm_mux2.bsf                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; lpm_mux2.cmp                          ; --            ; --          ; --         ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                  ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; 16764057                              ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top        ;
@@ -101,11 +109,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:07     ; 1.0                     ; 0 MB                ; 00:00:06                           ;
-; Fitter                    ; 00:00:17     ; 1.0                     ; 0 MB                ; 00:00:13                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 0 MB                ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:06     ; 1.0                     ; 0 MB                ; 00:00:04                           ;
-; Total                     ; 00:00:33     ; --                      ; --                  ; 00:00:25                           ;
+; Analysis & Synthesis      ; 00:00:06     ; 1.0                     ; 0 MB                ; 00:00:05                           ;
+; Fitter                    ; 00:00:16     ; 1.0                     ; 0 MB                ; 00:00:12                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 0 MB                ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 0 MB                ; 00:00:04                           ;
+; Total                     ; 00:00:29     ; --                      ; --                  ; 00:00:23                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -124,10 +132,10 @@ applicable agreement for further details.
 ------------
 ; Flow Log ;
 ------------
-quartus_map --read_settings_files=on --write_settings_files=off Motor -c motor
-quartus_fit --read_settings_files=off --write_settings_files=off Motor -c motor
-quartus_asm --read_settings_files=off --write_settings_files=off Motor -c motor
-quartus_sta Motor -c motor
+quartus_map --read_settings_files=on --write_settings_files=off motor -c motor
+quartus_fit --read_settings_files=off --write_settings_files=off motor -c motor
+quartus_asm --read_settings_files=off --write_settings_files=off motor -c motor
+quartus_sta motor -c motor
 
 
 

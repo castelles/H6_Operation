@@ -89,7 +89,7 @@ applicable agreement for further details.
 	(input)
 	(rect -72 168 96 184)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "enable" (rect 5 0 37 12)(font "Arial" ))
+	(text "enable" (rect 5 0 36 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -100,6 +100,7 @@ applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -128 184 -72 200))
 )
 (pin
 	(output)
@@ -268,56 +269,6 @@ applicable agreement for further details.
 	)
 	(drawing
 		(rectangle (rect 16 16 152 96))
-	)
-)
-(symbol
-	(rect 808 224 960 336)
-	(text "Comparador_e" (rect 5 0 76 12)(font "Arial" ))
-	(text "inst4" (rect 8 96 31 108)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "en" (rect 0 0 11 12)(font "Arial" ))
-		(text "en" (rect 21 27 32 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "rotation" (rect 0 0 36 12)(font "Arial" ))
-		(text "rotation" (rect 21 43 57 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "a[7..0]" (rect 0 0 31 12)(font "Arial" ))
-		(text "a[7..0]" (rect 21 59 52 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "b[7..0]" (rect 0 0 31 12)(font "Arial" ))
-		(text "b[7..0]" (rect 21 75 52 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 152 32)
-		(output)
-		(text "ls" (rect 0 0 8 12)(font "Arial" ))
-		(text "ls" (rect 125 27 133 39)(font "Arial" ))
-		(line (pt 152 32)(pt 136 32))
-	)
-	(port
-		(pt 152 48)
-		(output)
-		(text "led_ls" (rect 0 0 28 12)(font "Arial" ))
-		(text "led_ls" (rect 108 43 136 55)(font "Arial" ))
-		(line (pt 152 48)(pt 136 48))
-	)
-	(drawing
-		(rectangle (rect 16 16 136 96))
 	)
 )
 (symbol
@@ -567,6 +518,49 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 192 160))
 	)
 )
+(symbol
+	(rect 808 224 960 336)
+	(text "Comparador_e" (rect 5 0 76 12)(font "Arial" ))
+	(text "inst4" (rect 8 96 31 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "en" (rect 0 0 11 12)(font "Arial" ))
+		(text "en" (rect 21 27 32 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "a[7..0]" (rect 0 0 31 12)(font "Arial" ))
+		(text "a[7..0]" (rect 21 43 52 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "b[7..0]" (rect 0 0 31 12)(font "Arial" ))
+		(text "b[7..0]" (rect 21 59 52 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 152 32)
+		(output)
+		(text "ls" (rect 0 0 8 12)(font "Arial" ))
+		(text "ls" (rect 125 27 131 39)(font "Arial" ))
+		(line (pt 152 32)(pt 136 32))
+	)
+	(port
+		(pt 152 48)
+		(output)
+		(text "led_ls" (rect 0 0 28 12)(font "Arial" ))
+		(text "led_ls" (rect 108 43 131 55)(font "Arial" ))
+		(line (pt 152 48)(pt 136 48))
+	)
+	(drawing
+		(rectangle (rect 16 16 136 96))
+	)
+)
 (connector
 	(pt 336 240)
 	(pt 336 280)
@@ -616,22 +610,6 @@ applicable agreement for further details.
 	(pt 536 272)
 )
 (connector
-	(pt 872 80)
-	(pt 792 80)
-)
-(connector
-	(pt 792 272)
-	(pt 808 272)
-)
-(connector
-	(pt 792 80)
-	(pt 792 192)
-)
-(connector
-	(pt 792 192)
-	(pt 792 272)
-)
-(connector
 	(pt 776 96)
 	(pt 872 96)
 )
@@ -644,37 +622,8 @@ applicable agreement for further details.
 	(pt 776 256)
 )
 (connector
-	(pt 776 256)
-	(pt 808 256)
-)
-(connector
-	(pt 752 272)
-	(pt 776 272)
-	(bus)
-)
-(connector
-	(pt 776 272)
-	(pt 776 288)
-	(bus)
-)
-(connector
-	(pt 776 288)
-	(pt 808 288)
-	(bus)
-)
-(connector
 	(pt 632 480)
 	(pt 776 480)
-	(bus)
-)
-(connector
-	(pt 776 480)
-	(pt 776 304)
-	(bus)
-)
-(connector
-	(pt 776 304)
-	(pt 808 304)
 	(bus)
 )
 (connector
@@ -796,10 +745,6 @@ applicable agreement for further details.
 	(pt 520 208)
 )
 (connector
-	(pt 304 192)
-	(pt 792 192)
-)
-(connector
 	(pt 304 224)
 	(pt 504 224)
 )
@@ -824,7 +769,37 @@ applicable agreement for further details.
 	(pt 312 152)
 	(pt 336 152)
 )
-(junction (pt 792 192))
+(connector
+	(pt 776 256)
+	(pt 808 256)
+)
+(connector
+	(pt 872 80)
+	(pt 656 80)
+)
+(connector
+	(pt 656 80)
+	(pt 656 192)
+)
+(connector
+	(pt 304 192)
+	(pt 656 192)
+)
+(connector
+	(pt 752 272)
+	(pt 808 272)
+	(bus)
+)
+(connector
+	(pt 776 288)
+	(pt 776 480)
+	(bus)
+)
+(connector
+	(pt 776 288)
+	(pt 808 288)
+	(bus)
+)
 (junction (pt 776 224))
 (junction (pt 504 224))
 (junction (pt 56 360))

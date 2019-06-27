@@ -1,29 +1,14 @@
 |motor
+remote => controlador_e:b2v_inst.remote
+local => controlador_e:b2v_inst.local
+clk_fpga => div_freq:b2v_inst5.clk_50MHz
+door => controlador_e:b2v_inst.door_state
 enable => controlador_e:b2v_inst.en4
-key_remote => controlador_e:b2v_inst.remote
-key_local => controlador_e:b2v_inst.local
-clk => controlador_e:b2v_inst.clk
-clk => lpm_counter0:b2v_inst10.clock
-clk => dsf_shiftregister:b2v_inst2.clk
-clk => led_controller:b2v_inst5.clk
-clk => led_controller:b2v_inst6.clk
-clk => led_controller:b2v_inst7.clk
-clk => led_controller:b2v_inst8.clk
-led_ctrl <= led_controller:b2v_inst5.led_out
-led_ctrl2 <= led_controller:b2v_inst5.led_out2
-led_ctrl3 <= led_controller:b2v_inst5.led_out3
 duty_cycle <= comparador_e:b2v_inst4.ls
-in0 <= demux_rotation:b2v_inst3.in0
 in1 <= demux_rotation:b2v_inst3.in1
-led_right <= led_controller:b2v_inst8.led_out
-led_right2 <= led_controller:b2v_inst8.led_out2
-led_right3 <= led_controller:b2v_inst8.led_out3
-led_left <= led_controller:b2v_inst7.led_out3
-led_left2 <= led_controller:b2v_inst7.led_out2
-led_left3 <= led_controller:b2v_inst7.led_out
-led_power <= led_controller:b2v_inst6.led_out3
-led_power2 <= led_controller:b2v_inst6.led_out2
-led_power3 <= led_controller:b2v_inst6.led_out
+in0 <= demux_rotation:b2v_inst3.in0
+buzzer <= dsf_timer:b2v_inst1.buz
+led_door <= controlador_e:b2v_inst.led_door
 
 
 |motor|Controlador_e:b2v_inst
@@ -38,9 +23,11 @@ en4 => state_controller.OUTPUTSELECT
 en4 => state_controller.OUTPUTSELECT
 en4 => state_controller.OUTPUTSELECT
 en4 => state_controller.OUTPUTSELECT
+en4 => led_enable.OUTPUTSELECT
 en4 => led_enable~reg0.ACLR
 en4 => state_controller~7.DATAIN
 en4 => en_count~reg0.ENA
+en4 => led_door~reg0.ENA
 en4 => sp~reg0.ENA
 en4 => rt~reg0.ENA
 en4 => load~reg0.ENA
@@ -48,6 +35,7 @@ clk => en_count~reg0.CLK
 clk => load~reg0.CLK
 clk => rt~reg0.CLK
 clk => sp~reg0.CLK
+clk => led_door~reg0.CLK
 clk => led_enable~reg0.CLK
 clk => state_controller~5.DATAIN
 remote => process_0.IN1
@@ -55,6 +43,7 @@ remote => process_0.IN1
 local => process_0.IN1
 local => process_0.IN1
 local => process_0.IN1
+door_state => led_door~reg0.DATAIN
 sp <= sp~reg0.DB_MAX_OUTPUT_PORT_TYPE
 rt <= rt~reg0.DB_MAX_OUTPUT_PORT_TYPE
 load <= load~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -76,6 +65,23 @@ speed_high[5] <= <VCC>
 speed_high[6] <= <VCC>
 speed_high[7] <= <VCC>
 led_enable <= led_enable~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led_door <= led_door~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motor|dsf_timer:b2v_inst1
+clk => buz_output.CLK
+clk => counter[0].CLK
+clk => counter[1].CLK
+clk => counter[2].CLK
+clk => counter[3].CLK
+clk => counter[4].CLK
+clk => counter[5].CLK
+clk => counter[6].CLK
+clk => counter[7].CLK
+clk => counter[8].CLK
+clk => counter[9].CLK
+trig => buz_output.OUTPUTSELECT
+buz <= buz_output.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |motor|lpm_counter0:b2v_inst10
@@ -210,7 +216,6 @@ led_in1 <= in1.DB_MAX_OUTPUT_PORT_TYPE
 en => ls.IN1
 en => led_ls.IN1
 en => led_ls.OUTPUTSELECT
-rotation => ~NO_FANOUT~
 a[0] => LessThan0.IN8
 a[0] => LessThan1.IN8
 a[1] => LessThan0.IN7
@@ -247,64 +252,38 @@ ls <= ls$latch.DB_MAX_OUTPUT_PORT_TYPE
 led_ls <= led_ls$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|motor|led_controller:b2v_inst5
-clk => led_out3~reg0.CLK
-clk => led_out2~reg0.CLK
-clk => led_out~reg0.CLK
-control => led_out.OUTPUTSELECT
-control => led_out2.OUTPUTSELECT
-control => led_out3.OUTPUTSELECT
-control => led_out.OUTPUTSELECT
-control => led_out2.OUTPUTSELECT
-control => led_out3.OUTPUTSELECT
-led_out <= led_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led_out2 <= led_out2~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led_out3 <= led_out3~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|motor|led_controller:b2v_inst6
-clk => led_out3~reg0.CLK
-clk => led_out2~reg0.CLK
-clk => led_out~reg0.CLK
-control => led_out.OUTPUTSELECT
-control => led_out2.OUTPUTSELECT
-control => led_out3.OUTPUTSELECT
-control => led_out.OUTPUTSELECT
-control => led_out2.OUTPUTSELECT
-control => led_out3.OUTPUTSELECT
-led_out <= led_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led_out2 <= led_out2~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led_out3 <= led_out3~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|motor|led_controller:b2v_inst7
-clk => led_out3~reg0.CLK
-clk => led_out2~reg0.CLK
-clk => led_out~reg0.CLK
-control => led_out.OUTPUTSELECT
-control => led_out2.OUTPUTSELECT
-control => led_out3.OUTPUTSELECT
-control => led_out.OUTPUTSELECT
-control => led_out2.OUTPUTSELECT
-control => led_out3.OUTPUTSELECT
-led_out <= led_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led_out2 <= led_out2~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led_out3 <= led_out3~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|motor|led_controller:b2v_inst8
-clk => led_out3~reg0.CLK
-clk => led_out2~reg0.CLK
-clk => led_out~reg0.CLK
-control => led_out.OUTPUTSELECT
-control => led_out2.OUTPUTSELECT
-control => led_out3.OUTPUTSELECT
-control => led_out.OUTPUTSELECT
-control => led_out2.OUTPUTSELECT
-control => led_out3.OUTPUTSELECT
-led_out <= led_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led_out2 <= led_out2~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led_out3 <= led_out3~reg0.DB_MAX_OUTPUT_PORT_TYPE
+|motor|div_freq:b2v_inst5
+clk_50MHz => clk_1KHz~reg0.CLK
+clk_50MHz => clk_30KHz~reg0.CLK
+clk_50MHz => c_1KHz[0].CLK
+clk_50MHz => c_1KHz[1].CLK
+clk_50MHz => c_1KHz[2].CLK
+clk_50MHz => c_1KHz[3].CLK
+clk_50MHz => c_1KHz[4].CLK
+clk_50MHz => c_1KHz[5].CLK
+clk_50MHz => c_1KHz[6].CLK
+clk_50MHz => c_1KHz[7].CLK
+clk_50MHz => c_1KHz[8].CLK
+clk_50MHz => c_1KHz[9].CLK
+clk_50MHz => c_1KHz[10].CLK
+clk_50MHz => c_1KHz[11].CLK
+clk_50MHz => c_1KHz[12].CLK
+clk_50MHz => c_1KHz[13].CLK
+clk_50MHz => c_1KHz[14].CLK
+clk_50MHz => c_1KHz[15].CLK
+clk_50MHz => c_30KHz[0].CLK
+clk_50MHz => c_30KHz[1].CLK
+clk_50MHz => c_30KHz[2].CLK
+clk_50MHz => c_30KHz[3].CLK
+clk_50MHz => c_30KHz[4].CLK
+clk_50MHz => c_30KHz[5].CLK
+clk_50MHz => c_30KHz[6].CLK
+clk_50MHz => c_30KHz[7].CLK
+clk_50MHz => c_30KHz[8].CLK
+clk_50MHz => c_30KHz[9].CLK
+clk_50MHz => c_30KHz[10].CLK
+clk_1KHz <= clk_1KHz~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_30KHz <= clk_30KHz~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |motor|lpm_mux0:b2v_inst9
