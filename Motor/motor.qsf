@@ -69,7 +69,10 @@ set_location_assignment PIN_71 -to led_right3
 set_location_assignment PIN_75 -to led_power
 set_location_assignment PIN_76 -to led_power2
 set_location_assignment PIN_77 -to led_power3
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VHDL_FILE dsf_timer.vhd
+set_global_assignment -name VHDL_FILE div_freq.vhd
+set_global_assignment -name VHDL_FILE debouncer.vhd
+set_global_assignment -name VHDL_FILE ctrl_operation.vhd
 set_global_assignment -name BDF_FILE motor.bdf
 set_global_assignment -name VHDL_FILE motor.vhd
 set_global_assignment -name VHDL_FILE One_delay.vhd
@@ -85,3 +88,5 @@ set_global_assignment -name QIP_FILE lpm_mux1.qip
 set_global_assignment -name QIP_FILE lpm_mux2.qip
 set_global_assignment -name VHDL_FILE mux_select_input.vhd
 set_global_assignment -name BDF_FILE pwm.bdf
+set_global_assignment -name BDF_FILE BLOCKDIAGRAM/operation.bdf
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
