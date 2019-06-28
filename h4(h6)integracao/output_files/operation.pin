@@ -68,7 +68,7 @@ CHIP  "operation"  ASSIGNED TO AN: EP4CE6E22C6
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
-duty_cycle                   : 1         : output : 2.5 V             :         : 1         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 1         :        :                   :         : 1         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 2         :        :                   :         : 1         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 3         :        :                   :         : 1         :                
 GND                          : 4         : gnd    :                   :         :           :                
@@ -77,8 +77,8 @@ VCCINT                       : 5         : power  :                   : 1.2V    
 RESERVED_INPUT_WITH_WEAK_PULLUP : 7         :        :                   :         : 1         :                
 ~ALTERA_FLASH_nCE_nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : 8         : input  : 2.5 V             :         : 1         : N              
 nSTATUS                      : 9         :        :                   :         : 1         :                
-in0                          : 10        : output : 2.5 V             :         : 1         : N              
-door                         : 11        : input  : 2.5 V             :         : 1         : N              
+door                         : 10        : input  : 2.5 V             :         : 1         : N              
+in0                          : 11        : output : 2.5 V             :         : 1         : N              
 ~ALTERA_DCLK~                : 12        : output : 2.5 V             :         : 1         : N              
 ~ALTERA_DATA0~ / RESERVED_INPUT_WITH_WEAK_PULLUP : 13        : input  : 2.5 V             :         : 1         : N              
 nCONFIG                      : 14        :        :                   :         : 1         :                
@@ -181,7 +181,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : 110       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : 111       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 112       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 113       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 114       :        :                   :         : 7         :                
+duty_cycle                   : 114       : output : 2.5 V             :         : 7         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 115       :        :                   :         : 7         :                
 VCCINT                       : 116       : power  :                   : 1.2V    :           :                
 VCCIO7                       : 117       : power  :                   : 2.5V    : 7         :                
@@ -204,12 +204,12 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : 133       :        :                   :      
 VCCINT                       : 134       : power  :                   : 1.2V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 135       :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 136       :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 137       :        :                   :         : 8         :                
+trigger                      : 137       : input  : 2.5 V             :         : 8         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 138       :        :                   :         : 8         :                
 VCCIO8                       : 139       : power  :                   : 2.5V    : 8         :                
 GND                          : 140       : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 141       :        :                   :         : 8         :                
-buzzer                       : 142       : output : 2.5 V             :         : 8         : N              
+buzzer                       : 141       : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 142       :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 143       :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 144       :        :                   :         : 8         :                
 GND                          : EPAD      :        :                   :         :           :                

@@ -14,22 +14,22 @@ begin
 	process(clk_50MHz)
 	variable c_1KHz  : integer range 0 to 50000 := 0;
 	variable c_30KHz : integer range 0 to 1670  := 0;
-	begin
+		begin
 	
-		if rising_edge(clk_50MHz) then
-			c_30KHz := c_30KHz + 1;
-			c_1KHz  := c_1KHz  + 1;
+			if rising_edge(clk_50MHz) then
+				c_30KHz := c_30KHz + 1;
+				c_1KHz  := c_1KHz  + 1;
 		
-			if c_30KHz >= 1670 then
-				clk_30KHz <= not clk_30KHz;
-				c_30KHz := 0;
+				if c_30KHz >= 1670 then
+					clk_30KHz <= not clk_30KHz;
+					c_30KHz := 0;
+				end if;
+		
+				if c_1KHz >= 50000 then
+					clk_1KHz <= not clk_1KHz;
+					c_1KHz := 0;
+				end if;
+		
 			end if;
-		
-			if c_1KHz >= 50000 then
-				clk_1KHz <= not clk_1KHz;
-				c_1KHz := 0;
-			end if;
-		
-		end if;
-	end process;
+		end process;
 end arch;
