@@ -1,5 +1,5 @@
 Analysis & Synthesis report for operation
-Fri Jun 28 10:51:06 2019
+Mon Jul 01 10:57:54 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -15,16 +15,18 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
   9. State Machine - |operation|op_controller:b2v_inst|state_controller
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: lpm_counter0:b2v_inst10|lpm_counter:LPM_COUNTER_component
- 14. Parameter Settings for User Entity Instance: lpm_mux0:b2v_inst9|LPM_MUX:LPM_MUX_component
- 15. Port Connectivity Checks: "signal_compare:b2v_inst4"
- 16. Port Connectivity Checks: "demux_rotation:b2v_inst3"
- 17. Port Connectivity Checks: "op_controller:b2v_inst"
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: lpm_counter0:b2v_inst10|lpm_counter:LPM_COUNTER_component
+ 15. Parameter Settings for User Entity Instance: lpm_mux0:b2v_inst9|LPM_MUX:LPM_MUX_component
+ 16. Port Connectivity Checks: "signal_compare:b2v_inst4"
+ 17. Port Connectivity Checks: "demux_rotation:b2v_inst3"
+ 18. Port Connectivity Checks: "dsf_timer:b2v_inst1"
+ 19. Port Connectivity Checks: "op_controller:b2v_inst"
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
 
 
 
@@ -50,15 +52,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 28 10:51:06 2019           ;
+; Analysis & Synthesis Status        ; Successful - Mon Jul 01 10:57:54 2019           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; operation                                       ;
 ; Top-level Entity Name              ; operation                                       ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 106                                             ;
-;     Total combinational functions  ; 105                                             ;
-;     Dedicated logic registers      ; 47                                              ;
-; Total registers                    ; 47                                              ;
+; Total logic elements               ; 64                                              ;
+;     Total combinational functions  ; 63                                              ;
+;     Dedicated logic registers      ; 29                                              ;
+; Total registers                    ; 29                                              ;
 ; Total pins                         ; 11                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -178,6 +180,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; COMPONENTS/div_freq.vhd          ; yes             ; User VHDL File               ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/COMPONENTS/div_freq.vhd          ;         ;
 ; COMPONENTS/demux_rotation.vhd    ; yes             ; User VHDL File               ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/COMPONENTS/demux_rotation.vhd    ;         ;
 ; BLACKBOX/operation.vhd           ; yes             ; User VHDL File               ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/BLACKBOX/operation.vhd           ;         ;
+; COMPONENTS/pulse_box.vhd         ; yes             ; User VHDL File               ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/COMPONENTS/pulse_box.vhd         ;         ;
 ; lpm_counter.tdf                  ; yes             ; Megafunction                 ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/lpm_counter.tdf                                                                    ;         ;
 ; lpm_constant.inc                 ; yes             ; Megafunction                 ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/lpm_constant.inc                                                                   ;         ;
 ; lpm_decode.inc                   ; yes             ; Megafunction                 ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc                                                                     ;         ;
@@ -197,47 +200,51 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 106            ;
-;                                             ;                ;
-; Total combinational functions               ; 105            ;
-; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 45             ;
-;     -- 3 input functions                    ; 17             ;
-;     -- <=2 input functions                  ; 43             ;
-;                                             ;                ;
-; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 71             ;
-;     -- arithmetic mode                      ; 34             ;
-;                                             ;                ;
-; Total registers                             ; 47             ;
-;     -- Dedicated logic registers            ; 47             ;
-;     -- I/O registers                        ; 0              ;
-;                                             ;                ;
-; I/O pins                                    ; 11             ;
-; Embedded Multiplier 9-bit elements          ; 0              ;
-; Maximum fan-out node                        ; clk_fpga~input ;
-; Maximum fan-out                             ; 29             ;
-; Total fan-out                               ; 440            ;
-; Average fan-out                             ; 2.53           ;
-+---------------------------------------------+----------------+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                ;
++---------------------------------------------+------------------------------+
+; Resource                                    ; Usage                        ;
++---------------------------------------------+------------------------------+
+; Estimated Total logic elements              ; 64                           ;
+;                                             ;                              ;
+; Total combinational functions               ; 63                           ;
+; Logic element usage by number of LUT inputs ;                              ;
+;     -- 4 input functions                    ; 29                           ;
+;     -- 3 input functions                    ; 11                           ;
+;     -- <=2 input functions                  ; 23                           ;
+;                                             ;                              ;
+; Logic elements by mode                      ;                              ;
+;     -- normal mode                          ; 46                           ;
+;     -- arithmetic mode                      ; 17                           ;
+;                                             ;                              ;
+; Total registers                             ; 29                           ;
+;     -- Dedicated logic registers            ; 29                           ;
+;     -- I/O registers                        ; 0                            ;
+;                                             ;                              ;
+; I/O pins                                    ; 11                           ;
+; Embedded Multiplier 9-bit elements          ; 0                            ;
+; Maximum fan-out node                        ; div_freq:b2v_inst5|clk_30KHz ;
+; Maximum fan-out                             ; 18                           ;
+; Total fan-out                               ; 282                          ;
+; Average fan-out                             ; 2.47                         ;
++---------------------------------------------+------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                            ;
-+-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+--------------+
-; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                 ; Library Name ;
-+-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+--------------+
-; |operation                    ; 105 (0)           ; 47 (0)       ; 0           ; 0            ; 0       ; 0         ; 11   ; 0            ; |operation                          ; work         ;
-;    |demux_rotation:b2v_inst3| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|demux_rotation:b2v_inst3 ; work         ;
-;    |div_freq:b2v_inst5|       ; 63 (63)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|div_freq:b2v_inst5       ; work         ;
-;    |dsf_timer:b2v_inst1|      ; 23 (23)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|dsf_timer:b2v_inst1      ; work         ;
-;    |op_controller:b2v_inst|   ; 17 (17)           ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|op_controller:b2v_inst   ; work         ;
-+-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                 ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                          ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
+; |operation                                ; 63 (0)            ; 29 (0)       ; 0           ; 0            ; 0       ; 0         ; 11   ; 0            ; |operation                                                                                   ; work         ;
+;    |demux_rotation:b2v_inst3|             ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|demux_rotation:b2v_inst3                                                          ; work         ;
+;    |div_freq:b2v_inst5|                   ; 26 (26)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|div_freq:b2v_inst5                                                                ; work         ;
+;    |dsf_shiftregister:b2v_inst2|          ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|dsf_shiftregister:b2v_inst2                                                       ; work         ;
+;    |lpm_counter0:b2v_inst10|              ; 8 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|lpm_counter0:b2v_inst10                                                           ; work         ;
+;       |lpm_counter:LPM_COUNTER_component| ; 8 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|lpm_counter0:b2v_inst10|lpm_counter:LPM_COUNTER_component                         ; work         ;
+;          |cntr_5ei:auto_generated|        ; 8 (8)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|lpm_counter0:b2v_inst10|lpm_counter:LPM_COUNTER_component|cntr_5ei:auto_generated ; work         ;
+;    |op_controller:b2v_inst|               ; 21 (21)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|op_controller:b2v_inst                                                            ; work         ;
+;    |signal_compare:b2v_inst4|             ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|signal_compare:b2v_inst4                                                          ; work         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -264,14 +271,28 @@ Encoding Type:  One-Hot
 +-------------------------------+-------------------------------+----------------------------+-----------------------+--------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                           ;
-+---------------------------------------------------------------------------------------------------------+--------------------+
-; Register name                                                                                           ; Reason for Removal ;
-+---------------------------------------------------------------------------------------------------------+--------------------+
-; lpm_counter0:b2v_inst10|lpm_counter:LPM_COUNTER_component|cntr_5ei:auto_generated|counter_reg_bit[0..7] ; Lost fanout        ;
-; Total Number of Removed Registers = 8                                                                   ;                    ;
-+---------------------------------------------------------------------------------------------------------+--------------------+
++---------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                           ;
++----------------------------------------------------+---------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal             ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------------------+------------------------+
+; signal_compare:b2v_inst4|ls                        ; op_controller:b2v_inst|en_count ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                                 ;                        ;
++----------------------------------------------------+---------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                              ;
++-----------------------------------------------------+-----------------------------------------------------------+
+; Register name                                       ; Reason for Removal                                        ;
++-----------------------------------------------------+-----------------------------------------------------------+
+; dsf_shiftregister:b2v_inst2|speed_register[1,2,5,6] ; Stuck at VCC due to stuck port data_in                    ;
+; dsf_shiftregister:b2v_inst2|speed_register[4,7]     ; Merged with dsf_shiftregister:b2v_inst2|speed_register[3] ;
+; dsf_shiftregister:b2v_inst2|speed_register[3]       ; Merged with dsf_shiftregister:b2v_inst2|speed_register[0] ;
+; op_controller:b2v_inst|sp                           ; Merged with op_controller:b2v_inst|rt                     ;
+; Total Number of Removed Registers = 8               ;                                                           ;
++-----------------------------------------------------+-----------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -279,12 +300,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 47    ;
+; Total registers                              ; 29    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 4     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 13    ;
+; Number of registers using Clock Enable       ; 12    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -294,7 +315,6 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |operation|dsf_timer:b2v_inst1|counter[8]   ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |operation|op_controller:b2v_inst|Selector5 ;
 ; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |operation|op_controller:b2v_inst|Selector6 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
@@ -351,7 +371,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port   ; Type   ; Severity ; Details                                                                             ;
 +--------+--------+----------+-------------------------------------------------------------------------------------+
-; ls     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; led_ls ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +--------+--------+----------+-------------------------------------------------------------------------------------+
 
@@ -364,6 +383,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; led_in0 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; led_in1 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "dsf_timer:b2v_inst1"                                                                ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; buz  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -390,7 +418,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jun 28 10:50:59 2019
+    Info: Processing started: Mon Jul 01 10:57:47 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off operation -c operation
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file components/signal_compare.vhd
@@ -423,9 +451,11 @@ Info (12021): Found 2 design units, including 1 entities, in source file compone
 Info (12021): Found 2 design units, including 1 entities, in source file blackbox/operation.vhd
     Info (12022): Found design unit 1: operation-bdf_type
     Info (12023): Found entity 1: operation
+Info (12021): Found 2 design units, including 1 entities, in source file components/pulse_box.vhd
+    Info (12022): Found design unit 1: pulse_box-arch
+    Info (12023): Found entity 1: pulse_box
 Info (12127): Elaborating entity "operation" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at operation.vhd(33): used implicit default value for signal "duty_cycle" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at operation.vhd(118): object "SYNTHESIZED_WIRE_2" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at operation.vhd(36): used implicit default value for signal "buzzer" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info (12128): Elaborating entity "op_controller" for hierarchy "op_controller:b2v_inst"
 Warning (10540): VHDL Signal Declaration warning at op_controller.vhd(64): used explicit default value for signal "speed_low" because signal was never assigned a value
 Warning (10540): VHDL Signal Declaration warning at op_controller.vhd(65): used explicit default value for signal "speed_high" because signal was never assigned a value
@@ -462,6 +492,8 @@ Warning (10631): VHDL Process Statement warning at signal_compare.vhd(16): infer
 Info (10041): Inferred latch for "ls" at signal_compare.vhd(16)
 Info (10041): Inferred latch for "led_ls" at signal_compare.vhd(16)
 Info (12128): Elaborating entity "div_freq" for hierarchy "div_freq:b2v_inst5"
+Info (12128): Elaborating entity "pulse_box" for hierarchy "pulse_box:b2v_inst7"
+Warning (10492): VHDL Process Statement warning at pulse_box.vhd(18): signal "trig_pulse" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "lpm_mux0" for hierarchy "lpm_mux0:b2v_inst9"
 Info (12128): Elaborating entity "LPM_MUX" for hierarchy "lpm_mux0:b2v_inst9|LPM_MUX:LPM_MUX_component"
 Info (12130): Elaborated megafunction instantiation "lpm_mux0:b2v_inst9|LPM_MUX:LPM_MUX_component"
@@ -476,19 +508,20 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/mux_
     Info (12023): Found entity 1: mux_p7e
 Info (12128): Elaborating entity "mux_p7e" for hierarchy "lpm_mux0:b2v_inst9|LPM_MUX:LPM_MUX_component|mux_p7e:auto_generated"
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "duty_cycle" is stuck at GND
+    Warning (13410): Pin "buzzer" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 8 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 117 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "eot"
+Info (21057): Implemented 75 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 106 logic cells
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info (21061): Implemented 64 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 20 warnings
     Info: Peak virtual memory: 0 megabytes
-    Info: Processing ended: Fri Jun 28 10:51:06 2019
+    Info: Processing ended: Mon Jul 01 10:57:54 2019
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Total CPU time (on all processors): 00:00:05
 
 

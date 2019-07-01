@@ -2,112 +2,112 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'clk_fpga'
-Slack : -3.028
-TNS   : -75.595
+Type  : Slow 1200mV 85C Model Setup 'op_controller:b2v_inst|en_count'
+Slack : -4.744
+TNS   : -4.744
 
-Type  : Slow 1200mV 85C Model Setup 'div_freq:b2v_inst5|clk_1KHz'
-Slack : -1.680
-TNS   : -15.483
+Type  : Slow 1200mV 85C Model Setup 'clk_fpga'
+Slack : -2.527
+TNS   : -26.940
 
 Type  : Slow 1200mV 85C Model Setup 'div_freq:b2v_inst5|clk_30KHz'
-Slack : -1.002
-TNS   : -3.702
-
-Type  : Slow 1200mV 85C Model Hold 'clk_fpga'
-Slack : -0.117
-TNS   : -0.145
-
-Type  : Slow 1200mV 85C Model Hold 'div_freq:b2v_inst5|clk_1KHz'
-Slack : 0.356
-TNS   : 0.000
+Slack : -0.812
+TNS   : -9.094
 
 Type  : Slow 1200mV 85C Model Hold 'div_freq:b2v_inst5|clk_30KHz'
-Slack : 0.357
+Slack : -0.704
+TNS   : -3.344
+
+Type  : Slow 1200mV 85C Model Hold 'clk_fpga'
+Slack : -0.051
+TNS   : -0.051
+
+Type  : Slow 1200mV 85C Model Hold 'op_controller:b2v_inst|en_count'
+Slack : 3.596
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_fpga'
 Slack : -3.000
-TNS   : -32.000
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'div_freq:b2v_inst5|clk_1KHz'
-Slack : -1.000
-TNS   : -11.000
+TNS   : -15.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'div_freq:b2v_inst5|clk_30KHz'
 Slack : -1.000
-TNS   : -7.000
+TNS   : -17.000
 
-Type  : Slow 1200mV 0C Model Setup 'clk_fpga'
-Slack : -2.596
-TNS   : -64.349
-
-Type  : Slow 1200mV 0C Model Setup 'div_freq:b2v_inst5|clk_1KHz'
-Slack : -1.424
-TNS   : -12.766
-
-Type  : Slow 1200mV 0C Model Setup 'div_freq:b2v_inst5|clk_30KHz'
-Slack : -0.808
-TNS   : -2.705
-
-Type  : Slow 1200mV 0C Model Hold 'clk_fpga'
-Slack : -0.075
-TNS   : -0.086
-
-Type  : Slow 1200mV 0C Model Hold 'div_freq:b2v_inst5|clk_1KHz'
-Slack : 0.311
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'op_controller:b2v_inst|en_count'
+Slack : 0.423
 TNS   : 0.000
 
+Type  : Slow 1200mV 0C Model Setup 'op_controller:b2v_inst|en_count'
+Slack : -4.223
+TNS   : -4.223
+
+Type  : Slow 1200mV 0C Model Setup 'clk_fpga'
+Slack : -2.153
+TNS   : -22.795
+
+Type  : Slow 1200mV 0C Model Setup 'div_freq:b2v_inst5|clk_30KHz'
+Slack : -0.601
+TNS   : -6.413
+
 Type  : Slow 1200mV 0C Model Hold 'div_freq:b2v_inst5|clk_30KHz'
-Slack : 0.311
+Slack : -0.599
+TNS   : -2.671
+
+Type  : Slow 1200mV 0C Model Hold 'clk_fpga'
+Slack : -0.017
+TNS   : -0.017
+
+Type  : Slow 1200mV 0C Model Hold 'op_controller:b2v_inst|en_count'
+Slack : 3.293
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_fpga'
 Slack : -3.000
-TNS   : -32.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'div_freq:b2v_inst5|clk_1KHz'
-Slack : -1.000
-TNS   : -11.000
+TNS   : -15.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'div_freq:b2v_inst5|clk_30KHz'
 Slack : -1.000
-TNS   : -7.000
+TNS   : -17.000
 
-Type  : Fast 1200mV 0C Model Setup 'clk_fpga'
-Slack : -1.232
-TNS   : -29.053
-
-Type  : Fast 1200mV 0C Model Setup 'div_freq:b2v_inst5|clk_1KHz'
-Slack : -0.500
-TNS   : -3.684
-
-Type  : Fast 1200mV 0C Model Setup 'div_freq:b2v_inst5|clk_30KHz'
-Slack : -0.089
-TNS   : -0.133
-
-Type  : Fast 1200mV 0C Model Hold 'clk_fpga'
-Slack : -0.140
-TNS   : -0.255
-
-Type  : Fast 1200mV 0C Model Hold 'div_freq:b2v_inst5|clk_1KHz'
-Slack : 0.186
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'op_controller:b2v_inst|en_count'
+Slack : 0.433
 TNS   : 0.000
 
+Type  : Fast 1200mV 0C Model Setup 'op_controller:b2v_inst|en_count'
+Slack : -2.505
+TNS   : -2.505
+
+Type  : Fast 1200mV 0C Model Setup 'clk_fpga'
+Slack : -0.949
+TNS   : -9.592
+
+Type  : Fast 1200mV 0C Model Setup 'div_freq:b2v_inst5|clk_30KHz'
+Slack : -0.021
+TNS   : -0.038
+
 Type  : Fast 1200mV 0C Model Hold 'div_freq:b2v_inst5|clk_30KHz'
-Slack : 0.186
+Slack : -0.496
+TNS   : -2.616
+
+Type  : Fast 1200mV 0C Model Hold 'clk_fpga'
+Slack : -0.108
+TNS   : -0.108
+
+Type  : Fast 1200mV 0C Model Hold 'op_controller:b2v_inst|en_count'
+Slack : 2.293
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_fpga'
 Slack : -3.000
-TNS   : -34.046
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'div_freq:b2v_inst5|clk_1KHz'
-Slack : -1.000
-TNS   : -11.000
+TNS   : -15.806
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'div_freq:b2v_inst5|clk_30KHz'
 Slack : -1.000
-TNS   : -7.000
+TNS   : -17.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'op_controller:b2v_inst|en_count'
+Slack : 0.457
+TNS   : 0.000
 
 ------------------------------------------------------------

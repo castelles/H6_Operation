@@ -21,7 +21,7 @@ USE ieee.std_logic_1164.all;
 
 LIBRARY work;
 
-ENTITY operation IS 
+ENTITY motor IS 
 	PORT
 	(
 		remote :  IN  STD_LOGIC;
@@ -36,11 +36,11 @@ ENTITY operation IS
 		buzzer :  OUT  STD_LOGIC;
 		led_door :  OUT  STD_LOGIC
 	);
-END operation;
+END motor;
 
-ARCHITECTURE bdf_type OF operation IS 
+ARCHITECTURE bdf_type OF motor IS 
 
-COMPONENT op_controller
+COMPONENT controlador_e
 	PORT(en4 : IN STD_LOGIC;
 		 clk : IN STD_LOGIC;
 		 remote : IN STD_LOGIC;
@@ -89,7 +89,7 @@ COMPONENT demux_rotation
 	);
 END COMPONENT;
 
-COMPONENT signal_compare
+COMPONENT comparador_e
 	PORT(en : IN STD_LOGIC;
 		 a : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 		 b : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -138,7 +138,7 @@ BEGIN
 
 
 
-b2v_inst : op_controller
+b2v_inst : controlador_e
 PORT MAP(en4 => enable,
 		 clk => SYNTHESIZED_WIRE_17,
 		 remote => remote,
@@ -178,7 +178,7 @@ PORT MAP(selectRot => SYNTHESIZED_WIRE_8,
 		 in1 => in1);
 
 
-b2v_inst4 : signal_compare
+b2v_inst4 : comparador_e
 PORT MAP(en => SYNTHESIZED_WIRE_19,
 		 a => SYNTHESIZED_WIRE_11,
 		 b => SYNTHESIZED_WIRE_12,
