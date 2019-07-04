@@ -87,5 +87,7 @@ set_global_assignment -name QIP_FILE lpm_mux1.qip
 set_global_assignment -name QIP_FILE lpm_mux2.qip
 set_global_assignment -name VHDL_FILE mux_select_input.vhd
 set_global_assignment -name BDF_FILE pwm.bdf
-set_global_assignment -name BDF_FILE BLOCKDIAGRAM/operation.bdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VECTOR_WAVEFORM_FILE sV1vwf.vwf
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/Motor/sV1vwf.vwf"
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
