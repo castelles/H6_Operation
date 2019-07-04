@@ -103,23 +103,6 @@ applicable agreement for further details.
 	(annotation_block (location)(rect -128 184 -72 200))
 )
 (pin
-	(input)
-	(rect 968 584 1136 600)
-	(text "INPUT" (rect 15 6 43 16)(font "Arial" (font_size 6)))
-	(text "eot" (rect 147 4 163 16)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 84 4)(pt 59 4))
-		(line (pt 84 12)(pt 59 12))
-		(line (pt 55 8)(pt 0 8))
-		(line (pt 84 4)(pt 84 12))
-		(line (pt 59 12)(pt 55 8))
-		(line (pt 59 4)(pt 55 8))
-	)
-	(rotate180)
-	(text "VCC" (rect 20 -1 40 9)(font "Arial" (font_size 6)))
-)
-(pin
 	(output)
 	(rect 1016 248 1192 264)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
@@ -169,22 +152,6 @@ applicable agreement for further details.
 		(line (pt 78 12)(pt 82 8))
 	)
 	(annotation_block (location)(rect 1240 24 1296 40))
-)
-(pin
-	(output)
-	(rect 1064 368 1240 384)
-	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "buzzer" (rect 90 0 124 12)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
 )
 (pin
 	(output)
@@ -549,65 +516,6 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 136 96))
 	)
 )
-(symbol
-	(rect 928 344 1056 424)
-	(text "dsf_timer" (rect 5 0 52 12)(font "Arial" ))
-	(text "inst1" (rect 8 64 31 76)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 27 35 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "trig" (rect 0 0 15 12)(font "Arial" ))
-		(text "trig" (rect 21 43 36 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 128 32)
-		(output)
-		(text "buz" (rect 0 0 17 12)(font "Arial" ))
-		(text "buz" (rect 93 27 107 39)(font "Arial" ))
-		(line (pt 128 32)(pt 112 32))
-	)
-	(drawing
-		(rectangle (rect 16 16 112 64))
-	)
-)
-(symbol
-	(rect 888 432 968 584)
-	(text "pulse_box" (rect 0 98 12 147)(font "Arial" )(vertical))
-	(text "inst7" (rect 64 121 76 144)(font "Arial" )(vertical))
-	(port
-		(pt 32 152)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 27 117 39 131)(font "Arial" )(vertical))
-		(line (pt 32 152)(pt 32 136))
-	)
-	(port
-		(pt 48 152)
-		(input)
-		(text "eot" (rect 0 0 15 12)(font "Arial" ))
-		(text "eot" (rect 43 116 55 131)(font "Arial" )(vertical))
-		(line (pt 48 152)(pt 48 136))
-	)
-	(port
-		(pt 32 0)
-		(output)
-		(text "trig_pulse" (rect 0 0 47 12)(font "Arial" ))
-		(text "trig_pulse" (rect 27 13 39 60)(font "Arial" )(vertical))
-		(line (pt 32 0)(pt 32 16))
-	)
-	(drawing
-		(rectangle (rect 16 16 64 136))
-	)
-	(rotate90)
-)
 (connector
 	(pt 336 240)
 	(pt 336 280)
@@ -722,14 +630,6 @@ applicable agreement for further details.
 	(pt 488 456)
 )
 (connector
-	(pt 48 440)
-	(pt 392 440)
-)
-(connector
-	(pt 392 440)
-	(pt 392 536)
-)
-(connector
 	(pt -152 440)
 	(pt -152 408)
 )
@@ -823,48 +723,7 @@ applicable agreement for further details.
 	(pt 760 288)
 	(bus)
 )
-(connector
-	(pt 392 536)
-	(pt 680 536)
-)
-(connector
-	(pt 928 376)
-	(pt 680 376)
-)
-(connector
-	(pt 928 392)
-	(pt 920 392)
-)
-(connector
-	(pt 920 392)
-	(pt 920 432)
-)
-(connector
-	(pt 968 592)
-	(pt 936 592)
-)
-(connector
-	(pt 936 592)
-	(pt 936 584)
-)
-(connector
-	(pt 680 592)
-	(pt 920 592)
-)
-(connector
-	(pt 680 376)
-	(pt 680 536)
-)
-(connector
-	(pt 680 536)
-	(pt 680 592)
-)
-(connector
-	(pt 920 592)
-	(pt 920 584)
-)
 (junction (pt 776 224))
 (junction (pt 504 224))
 (junction (pt 56 360))
 (junction (pt 56 456))
-(junction (pt 680 536))
