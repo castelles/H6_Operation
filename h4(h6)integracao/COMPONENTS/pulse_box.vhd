@@ -1,10 +1,11 @@
+Library ieee;
 use ieee.std_logic_1164.all;
 
 entity pulse_box is
 	port (
 			clk        : in std_logic;
-			eot   	  : in std_logic;
-			trig_pulse 	  : buffer std_logic
+			eot   	  : in std_logic;  -- sinal que vem do lcd e é ativo quando a contagem se encerra
+			trig_pulse 	  : buffer std_logic  -- saída em pulso para ligar a buzina
 	);
 end pulse_box;
 

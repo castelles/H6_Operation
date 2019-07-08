@@ -1,5 +1,5 @@
 
-State Machine - |operation|op_controller:b2v_inst|state_controller
+State Machine - |operation|op_controller:inst|state_controller
 Name state_controller.power_engine state_controller.set_speed state_controller.hold state_controller.standby 
 state_controller.standby 0 0 0 0 
 state_controller.hold 0 0 1 1 
