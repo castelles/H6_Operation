@@ -1,5 +1,5 @@
 Analysis & Synthesis report for operation
-Thu Jul 04 14:22:26 2019
+Wed Jul 10 11:59:34 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -48,16 +48,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jul 04 14:22:26 2019           ;
+; Analysis & Synthesis Status        ; Successful - Wed Jul 10 11:59:34 2019           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; operation                                       ;
 ; Top-level Entity Name              ; operation                                       ;
-; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 61                                              ;
-;     Total combinational functions  ; 59                                              ;
-;     Dedicated logic registers      ; 30                                              ;
-; Total registers                    ; 30                                              ;
-; Total pins                         ; 12                                              ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 125                                             ;
+;     Total combinational functions  ; 123                                             ;
+;     Dedicated logic registers      ; 59                                              ;
+; Total registers                    ; 59                                              ;
+; Total pins                         ; 11                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -71,7 +71,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Top-level entity name                                                      ; operation          ; operation          ;
-; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                                ; Off                ; Off                ;
@@ -110,12 +110,14 @@ applicable agreement for further details.
 ; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
 ; Auto ROM Replacement                                                       ; On                 ; On                 ;
 ; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
 ; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
 ; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
 ; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
 ; Strict RAM Replacement                                                     ; Off                ; Off                ;
 ; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
 ; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
 ; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
 ; Auto Resource Sharing                                                      ; Off                ; Off                ;
 ; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
@@ -123,7 +125,7 @@ applicable agreement for further details.
 ; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
 ; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
 ; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
 ; Report Parameter Settings                                                  ; On                 ; On                 ;
 ; Report Source Assignments                                                  ; On                 ; On                 ;
 ; Report Connectivity Checks                                                 ; On                 ; On                 ;
@@ -174,12 +176,14 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; COMPONENTS/demux_rotation.vhd    ; yes             ; User VHDL File                     ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/COMPONENTS/demux_rotation.vhd    ;         ;
 ; COMPONENTS/pulse_box.vhd         ; yes             ; User VHDL File                     ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/COMPONENTS/pulse_box.vhd         ;         ;
 ; BLOCKDIAGRAM/operation.bdf       ; yes             ; User Block Diagram/Schematic File  ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/BLOCKDIAGRAM/operation.bdf       ;         ;
+; COMPONENTS/div_freq_30KHz.vhd    ; yes             ; User VHDL File                     ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/COMPONENTS/div_freq_30KHz.vhd    ;         ;
+; COMPONENTS/div_freq_1KHz.vhd     ; yes             ; User VHDL File                     ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/COMPONENTS/div_freq_1KHz.vhd     ;         ;
 ; lpm_mux.tdf                      ; yes             ; Megafunction                       ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/lpm_mux.tdf                                                                        ;         ;
 ; aglobal130.inc                   ; yes             ; Megafunction                       ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                                                                     ;         ;
 ; muxlut.inc                       ; yes             ; Megafunction                       ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/muxlut.inc                                                                         ;         ;
 ; bypassff.inc                     ; yes             ; Megafunction                       ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/bypassff.inc                                                                       ;         ;
 ; altshift.inc                     ; yes             ; Megafunction                       ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/altshift.inc                                                                       ;         ;
-; db/mux_73e.tdf                   ; yes             ; Auto-Generated Megafunction        ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/db/mux_73e.tdf                   ;         ;
+; db/mux_p7e.tdf                   ; yes             ; Auto-Generated Megafunction        ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/db/mux_p7e.tdf                   ;         ;
 ; lpm_counter.tdf                  ; yes             ; Megafunction                       ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/lpm_counter.tdf                                                                    ;         ;
 ; lpm_constant.inc                 ; yes             ; Megafunction                       ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/lpm_constant.inc                                                                   ;         ;
 ; lpm_decode.inc                   ; yes             ; Megafunction                       ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc                                                                     ;         ;
@@ -189,7 +193,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; lpm_counter.inc                  ; yes             ; Megafunction                       ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/lpm_counter.inc                                                                    ;         ;
 ; dffeea.inc                       ; yes             ; Megafunction                       ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/dffeea.inc                                                                         ;         ;
 ; alt_counter_stratix.inc          ; yes             ; Megafunction                       ; z:/users/caiotelles/desktop/13.0sp1/quartus/libraries/megafunctions/alt_counter_stratix.inc                                                            ;         ;
-; db/cntr_j9i.tdf                  ; yes             ; Auto-Generated Megafunction        ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/db/cntr_j9i.tdf                  ;         ;
+; db/cntr_5ei.tdf                  ; yes             ; Auto-Generated Megafunction        ; Z:/Users/caiotelles/Google Drive/Universidade/Eletrônica Digital II/Caminhadas/iicaminhada/Operation/h4(h6)integracao/db/cntr_5ei.tdf                  ;         ;
 +----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -198,28 +202,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------------------+
 ; Resource                                    ; Usage                ;
 +---------------------------------------------+----------------------+
-; Estimated Total logic elements              ; 61                   ;
+; Estimated Total logic elements              ; 125                  ;
 ;                                             ;                      ;
-; Total combinational functions               ; 59                   ;
+; Total combinational functions               ; 123                  ;
 ; Logic element usage by number of LUT inputs ;                      ;
-;     -- 4 input functions                    ; 28                   ;
-;     -- 3 input functions                    ; 9                    ;
-;     -- <=2 input functions                  ; 22                   ;
+;     -- 4 input functions                    ; 49                   ;
+;     -- 3 input functions                    ; 23                   ;
+;     -- <=2 input functions                  ; 51                   ;
 ;                                             ;                      ;
 ; Logic elements by mode                      ;                      ;
-;     -- normal mode                          ; 43                   ;
-;     -- arithmetic mode                      ; 16                   ;
+;     -- normal mode                          ; 82                   ;
+;     -- arithmetic mode                      ; 41                   ;
 ;                                             ;                      ;
-; Total registers                             ; 30                   ;
-;     -- Dedicated logic registers            ; 30                   ;
+; Total registers                             ; 59                   ;
+;     -- Dedicated logic registers            ; 59                   ;
 ;     -- I/O registers                        ; 0                    ;
 ;                                             ;                      ;
-; I/O pins                                    ; 12                   ;
+; I/O pins                                    ; 11                   ;
 ; Embedded Multiplier 9-bit elements          ; 0                    ;
-; Maximum fan-out node                        ; dsf_timer:inst14|buz ;
-; Maximum fan-out                             ; 20                   ;
-; Total fan-out                               ; 272                  ;
-; Average fan-out                             ; 2.69                 ;
+; Maximum fan-out node                        ; clk_fpga_50MHz~input ;
+; Maximum fan-out                             ; 29                   ;
+; Total fan-out                               ; 523                  ;
+; Average fan-out                             ; 2.56                 ;
 +---------------------------------------------+----------------------+
 
 
@@ -228,14 +232,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                      ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------+--------------+
-; |operation                                ; 59 (0)            ; 30 (0)       ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |operation                                                                               ; work         ;
+; |operation                                ; 123 (0)           ; 59 (0)       ; 0           ; 0            ; 0       ; 0         ; 11   ; 0            ; |operation                                                                               ; work         ;
 ;    |demux_rotation:inst19|                ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|demux_rotation:inst19                                                         ; work         ;
+;    |div_freq_1KHz:inst2|                  ; 37 (37)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|div_freq_1KHz:inst2                                                           ; work         ;
+;    |div_freq_30KHz:inst3|                 ; 26 (26)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|div_freq_30KHz:inst3                                                          ; work         ;
 ;    |dsf_shiftregister:inst12|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|dsf_shiftregister:inst12                                                      ; work         ;
 ;    |dsf_timer:inst14|                     ; 23 (23)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|dsf_timer:inst14                                                              ; work         ;
 ;    |lpm_counter0:inst17|                  ; 8 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|lpm_counter0:inst17                                                           ; work         ;
 ;       |lpm_counter:LPM_COUNTER_component| ; 8 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|lpm_counter0:inst17|lpm_counter:LPM_COUNTER_component                         ; work         ;
-;          |cntr_j9i:auto_generated|        ; 8 (8)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|lpm_counter0:inst17|lpm_counter:LPM_COUNTER_component|cntr_j9i:auto_generated ; work         ;
-;    |op_controller:inst|                   ; 19 (19)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|op_controller:inst                                                            ; work         ;
+;          |cntr_5ei:auto_generated|        ; 8 (8)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|lpm_counter0:inst17|lpm_counter:LPM_COUNTER_component|cntr_5ei:auto_generated ; work         ;
+;    |op_controller:inst|                   ; 20 (20)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|op_controller:inst                                                            ; work         ;
 ;    |pulse_box:inst13|                     ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|pulse_box:inst13                                                              ; work         ;
 ;    |signal_compare:inst8|                 ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |operation|signal_compare:inst8                                                          ; work         ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------+--------------+
@@ -282,7 +288,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Register name                                    ; Reason for Removal                                     ;
 +--------------------------------------------------+--------------------------------------------------------+
 ; dsf_shiftregister:inst12|speed_register[1,2,5,6] ; Stuck at VCC due to stuck port data_in                 ;
-; dsf_shiftregister:inst12|speed_register[3,4,7]   ; Merged with dsf_shiftregister:inst12|speed_register[0] ;
+; dsf_shiftregister:inst12|speed_register[4,7]     ; Merged with dsf_shiftregister:inst12|speed_register[3] ;
+; dsf_shiftregister:inst12|speed_register[3]       ; Merged with dsf_shiftregister:inst12|speed_register[0] ;
 ; op_controller:inst|sp                            ; Merged with op_controller:inst|rt                      ;
 ; Total Number of Removed Registers = 8            ;                                                        ;
 +--------------------------------------------------+--------------------------------------------------------+
@@ -293,7 +300,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 30    ;
+; Total registers                              ; 59    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 4     ;
@@ -309,54 +316,54 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
 ; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |operation|dsf_timer:inst14|counter[9]  ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |operation|op_controller:inst|Selector5 ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |operation|op_controller:inst|Selector6 ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |operation|op_controller:inst|Selector8 ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |operation|op_controller:inst|Selector7 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
 
 
 +----------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: lpm_mux0:inst16|LPM_MUX:LPM_MUX_component ;
-+------------------------+------------+--------------------------------------------------+
-; Parameter Name         ; Value      ; Type                                             ;
-+------------------------+------------+--------------------------------------------------+
-; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                       ;
-; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                     ;
-; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                     ;
-; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                   ;
-; LPM_WIDTH              ; 8          ; Signed Integer                                   ;
-; LPM_SIZE               ; 2          ; Signed Integer                                   ;
-; LPM_WIDTHS             ; 1          ; Signed Integer                                   ;
-; LPM_PIPELINE           ; 0          ; Signed Integer                                   ;
-; CBXI_PARAMETER         ; mux_73e    ; Untyped                                          ;
-; DEVICE_FAMILY          ; Cyclone II ; Untyped                                          ;
-+------------------------+------------+--------------------------------------------------+
++------------------------+--------------+------------------------------------------------+
+; Parameter Name         ; Value        ; Type                                           ;
++------------------------+--------------+------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                   ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                 ;
+; LPM_WIDTH              ; 8            ; Signed Integer                                 ;
+; LPM_SIZE               ; 2            ; Signed Integer                                 ;
+; LPM_WIDTHS             ; 1            ; Signed Integer                                 ;
+; LPM_PIPELINE           ; 0            ; Signed Integer                                 ;
+; CBXI_PARAMETER         ; mux_p7e      ; Untyped                                        ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                        ;
++------------------------+--------------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +----------------------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: lpm_counter0:inst17|lpm_counter:LPM_COUNTER_component ;
-+------------------------+-------------+-------------------------------------------------------------+
-; Parameter Name         ; Value       ; Type                                                        ;
-+------------------------+-------------+-------------------------------------------------------------+
-; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                  ;
-; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                ;
-; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                ;
-; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                              ;
-; LPM_WIDTH              ; 8           ; Signed Integer                                              ;
-; LPM_DIRECTION          ; UP          ; Untyped                                                     ;
-; LPM_MODULUS            ; 0           ; Untyped                                                     ;
-; LPM_AVALUE             ; UNUSED      ; Untyped                                                     ;
-; LPM_SVALUE             ; UNUSED      ; Untyped                                                     ;
-; LPM_PORT_UPDOWN        ; PORT_UNUSED ; Untyped                                                     ;
-; DEVICE_FAMILY          ; Cyclone II  ; Untyped                                                     ;
-; CARRY_CHAIN            ; MANUAL      ; Untyped                                                     ;
-; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                          ;
-; NOT_GATE_PUSH_BACK     ; ON          ; NOT_GATE_PUSH_BACK                                          ;
-; CARRY_CNT_EN           ; SMART       ; Untyped                                                     ;
-; LABWIDE_SCLR           ; ON          ; Untyped                                                     ;
-; USE_NEW_VERSION        ; TRUE        ; Untyped                                                     ;
-; CBXI_PARAMETER         ; cntr_j9i    ; Untyped                                                     ;
-+------------------------+-------------+-------------------------------------------------------------+
++------------------------+--------------+------------------------------------------------------------+
+; Parameter Name         ; Value        ; Type                                                       ;
++------------------------+--------------+------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                               ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                             ;
+; LPM_WIDTH              ; 8            ; Signed Integer                                             ;
+; LPM_DIRECTION          ; UP           ; Untyped                                                    ;
+; LPM_MODULUS            ; 0            ; Untyped                                                    ;
+; LPM_AVALUE             ; UNUSED       ; Untyped                                                    ;
+; LPM_SVALUE             ; UNUSED       ; Untyped                                                    ;
+; LPM_PORT_UPDOWN        ; PORT_UNUSED  ; Untyped                                                    ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                                    ;
+; CARRY_CHAIN            ; MANUAL       ; Untyped                                                    ;
+; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                                         ;
+; NOT_GATE_PUSH_BACK     ; ON           ; NOT_GATE_PUSH_BACK                                         ;
+; CARRY_CNT_EN           ; SMART        ; Untyped                                                    ;
+; LABWIDE_SCLR           ; ON           ; Untyped                                                    ;
+; USE_NEW_VERSION        ; TRUE         ; Untyped                                                    ;
+; CBXI_PARAMETER         ; cntr_5ei     ; Untyped                                                    ;
++------------------------+--------------+------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -365,7 +372,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -375,7 +382,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Jul 04 14:22:20 2019
+    Info: Processing started: Wed Jul 10 11:59:27 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off operation -c operation
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file components/signal_compare.vhd
@@ -399,9 +406,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file compone
 Info (12021): Found 2 design units, including 1 entities, in source file components/dsf_shiftregister.vhd
     Info (12022): Found design unit 1: dsf_shiftregister-load_register
     Info (12023): Found entity 1: dsf_shiftregister
-Info (12021): Found 2 design units, including 1 entities, in source file components/div_freq.vhd
-    Info (12022): Found design unit 1: div_freq-arch
-    Info (12023): Found entity 1: div_freq
+Warning (12019): Can't analyze file -- file COMPONENTS/div_freq.vhd is missing
 Info (12021): Found 2 design units, including 1 entities, in source file components/demux_rotation.vhd
     Info (12022): Found design unit 1: demux_rotation-arq1
     Info (12023): Found entity 1: demux_rotation
@@ -410,6 +415,12 @@ Info (12021): Found 2 design units, including 1 entities, in source file compone
     Info (12023): Found entity 1: pulse_box
 Info (12021): Found 1 design units, including 1 entities, in source file blockdiagram/operation.bdf
     Info (12023): Found entity 1: operation
+Info (12021): Found 2 design units, including 1 entities, in source file components/div_freq_30khz.vhd
+    Info (12022): Found design unit 1: div_freq_30KHz-arch
+    Info (12023): Found entity 1: div_freq_30KHz
+Info (12021): Found 2 design units, including 1 entities, in source file components/div_freq_1khz.vhd
+    Info (12022): Found design unit 1: div_freq_1KHz-arch
+    Info (12023): Found entity 1: div_freq_1KHz
 Info (12127): Elaborating entity "operation" for the top level hierarchy
 Info (12128): Elaborating entity "signal_compare" for hierarchy "signal_compare:inst8"
 Warning (10492): VHDL Process Statement warning at signal_compare.vhd(21): signal "a" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
@@ -421,8 +432,9 @@ Warning (10631): VHDL Process Statement warning at signal_compare.vhd(16): infer
 Info (10041): Inferred latch for "ls" at signal_compare.vhd(16)
 Info (10041): Inferred latch for "led_ls" at signal_compare.vhd(16)
 Info (12128): Elaborating entity "op_controller" for hierarchy "op_controller:inst"
-Warning (10540): VHDL Signal Declaration warning at op_controller.vhd(64): used explicit default value for signal "speed_low" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at op_controller.vhd(65): used explicit default value for signal "speed_high" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at op_controller.vhd(15): used explicit default value for signal "speed_low" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at op_controller.vhd(16): used explicit default value for signal "speed_high" because signal was never assigned a value
+Info (12128): Elaborating entity "div_freq_30KHz" for hierarchy "div_freq_30KHz:inst3"
 Info (12128): Elaborating entity "dsf_shiftregister" for hierarchy "dsf_shiftregister:inst12"
 Info (12128): Elaborating entity "lpm_mux0" for hierarchy "lpm_mux0:inst16"
 Info (12128): Elaborating entity "LPM_MUX" for hierarchy "lpm_mux0:inst16|LPM_MUX:LPM_MUX_component"
@@ -434,9 +446,9 @@ Info (12133): Instantiated megafunction "lpm_mux0:inst16|LPM_MUX:LPM_MUX_compone
     Info (12134): Parameter "LPM_PIPELINE" = "0"
     Info (12134): Parameter "LPM_TYPE" = "LPM_MUX"
     Info (12134): Parameter "LPM_HINT" = "UNUSED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/mux_73e.tdf
-    Info (12023): Found entity 1: mux_73e
-Info (12128): Elaborating entity "mux_73e" for hierarchy "lpm_mux0:inst16|LPM_MUX:LPM_MUX_component|mux_73e:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_p7e.tdf
+    Info (12023): Found entity 1: mux_p7e
+Info (12128): Elaborating entity "mux_p7e" for hierarchy "lpm_mux0:inst16|LPM_MUX:LPM_MUX_component|mux_p7e:auto_generated"
 Info (12128): Elaborating entity "lpm_counter0" for hierarchy "lpm_counter0:inst17"
 Info (12128): Elaborating entity "lpm_counter" for hierarchy "lpm_counter0:inst17|lpm_counter:LPM_COUNTER_component"
 Info (12130): Elaborated megafunction instantiation "lpm_counter0:inst17|lpm_counter:LPM_COUNTER_component"
@@ -445,9 +457,9 @@ Info (12133): Instantiated megafunction "lpm_counter0:inst17|lpm_counter:LPM_COU
     Info (12134): Parameter "lpm_port_updown" = "PORT_UNUSED"
     Info (12134): Parameter "lpm_type" = "LPM_COUNTER"
     Info (12134): Parameter "lpm_width" = "8"
-Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_j9i.tdf
-    Info (12023): Found entity 1: cntr_j9i
-Info (12128): Elaborating entity "cntr_j9i" for hierarchy "lpm_counter0:inst17|lpm_counter:LPM_COUNTER_component|cntr_j9i:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_5ei.tdf
+    Info (12023): Found entity 1: cntr_5ei
+Info (12128): Elaborating entity "cntr_5ei" for hierarchy "lpm_counter0:inst17|lpm_counter:LPM_COUNTER_component|cntr_5ei:auto_generated"
 Info (12128): Elaborating entity "demux_rotation" for hierarchy "demux_rotation:inst19"
 Warning (10631): VHDL Process Statement warning at demux_rotation.vhd(21): inferring latch(es) for signal or variable "in0", which holds its previous value in one or more paths through the process
 Warning (10631): VHDL Process Statement warning at demux_rotation.vhd(21): inferring latch(es) for signal or variable "in1", which holds its previous value in one or more paths through the process
@@ -458,17 +470,19 @@ Info (10041): Inferred latch for "led_in0" at demux_rotation.vhd(21)
 Info (10041): Inferred latch for "in1" at demux_rotation.vhd(21)
 Info (10041): Inferred latch for "in0" at demux_rotation.vhd(21)
 Info (12128): Elaborating entity "dsf_timer" for hierarchy "dsf_timer:inst14"
+Info (12128): Elaborating entity "div_freq_1KHz" for hierarchy "div_freq_1KHz:inst2"
 Info (12128): Elaborating entity "pulse_box" for hierarchy "pulse_box:inst13"
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 73 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 7 input pins
+Info (21057): Implemented 136 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
     Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 61 logic cells
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info (21061): Implemented 125 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 14 warnings
     Info: Peak virtual memory: 0 megabytes
-    Info: Processing ended: Thu Jul 04 14:22:26 2019
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Processing ended: Wed Jul 10 11:59:34 2019
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
 
 

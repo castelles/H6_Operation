@@ -2,76 +2,148 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow Model Setup 'op_controller:inst|en_count'
-Slack : -4.238
-TNS   : -4.238
+Type  : Slow 1200mV 85C Model Setup 'op_controller:inst|en_count'
+Slack : -4.446
+TNS   : -4.446
 
-Type  : Slow Model Setup 'clk_fpga_50MHz'
-Slack : -1.612
-TNS   : -15.362
+Type  : Slow 1200mV 85C Model Setup 'clk_fpga_50MHz'
+Slack : -3.419
+TNS   : -78.543
 
-Type  : Slow Model Setup 'not_clk_fpga_50MHz'
-Slack : -0.964
-TNS   : -9.372
+Type  : Slow 1200mV 85C Model Setup 'div_freq_1KHz:inst2|clk_1KHz'
+Slack : -1.434
+TNS   : -13.826
 
-Type  : Slow Model Hold 'not_clk_fpga_50MHz'
-Slack : -2.232
-TNS   : -14.032
+Type  : Slow 1200mV 85C Model Setup 'div_freq_30KHz:inst3|clk_30KHz'
+Slack : -1.013
+TNS   : -9.604
 
-Type  : Slow Model Hold 'clk_fpga_50MHz'
-Slack : 0.391
+Type  : Slow 1200mV 85C Model Hold 'div_freq_30KHz:inst3|clk_30KHz'
+Slack : -0.236
+TNS   : -1.780
+
+Type  : Slow 1200mV 85C Model Hold 'clk_fpga_50MHz'
+Slack : -0.085
+TNS   : -0.085
+
+Type  : Slow 1200mV 85C Model Hold 'div_freq_1KHz:inst2|clk_1KHz'
+Slack : 0.342
 TNS   : 0.000
 
-Type  : Slow Model Hold 'op_controller:inst|en_count'
-Slack : 3.494
+Type  : Slow 1200mV 85C Model Hold 'op_controller:inst|en_count'
+Slack : 3.370
 TNS   : 0.000
 
-Type  : Slow Model Minimum Pulse Width 'not_clk_fpga_50MHz'
-Slack : -1.380
-TNS   : -18.380
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_fpga_50MHz'
+Slack : -3.000
+TNS   : -32.000
 
-Type  : Slow Model Minimum Pulse Width 'clk_fpga_50MHz'
-Slack : -1.380
-TNS   : -14.380
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'div_freq_30KHz:inst3|clk_30KHz'
+Slack : -1.000
+TNS   : -17.000
 
-Type  : Slow Model Minimum Pulse Width 'op_controller:inst|en_count'
-Slack : 0.500
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'div_freq_1KHz:inst2|clk_1KHz'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'op_controller:inst|en_count'
+Slack : 0.422
 TNS   : 0.000
 
-Type  : Fast Model Setup 'op_controller:inst|en_count'
-Slack : -1.966
-TNS   : -1.966
+Type  : Slow 1200mV 0C Model Setup 'op_controller:inst|en_count'
+Slack : -3.949
+TNS   : -3.949
 
-Type  : Fast Model Setup 'clk_fpga_50MHz'
-Slack : -0.176
-TNS   : -0.809
+Type  : Slow 1200mV 0C Model Setup 'clk_fpga_50MHz'
+Slack : -2.950
+TNS   : -66.770
 
-Type  : Fast Model Setup 'not_clk_fpga_50MHz'
-Slack : 0.099
+Type  : Slow 1200mV 0C Model Setup 'div_freq_1KHz:inst2|clk_1KHz'
+Slack : -1.166
+TNS   : -11.242
+
+Type  : Slow 1200mV 0C Model Setup 'div_freq_30KHz:inst3|clk_30KHz'
+Slack : -0.815
+TNS   : -6.878
+
+Type  : Slow 1200mV 0C Model Hold 'div_freq_30KHz:inst3|clk_30KHz'
+Slack : -0.174
+TNS   : -1.158
+
+Type  : Slow 1200mV 0C Model Hold 'clk_fpga_50MHz'
+Slack : -0.058
+TNS   : -0.058
+
+Type  : Slow 1200mV 0C Model Hold 'div_freq_1KHz:inst2|clk_1KHz'
+Slack : 0.297
 TNS   : 0.000
 
-Type  : Fast Model Hold 'not_clk_fpga_50MHz'
-Slack : -1.371
-TNS   : -9.163
-
-Type  : Fast Model Hold 'clk_fpga_50MHz'
-Slack : 0.215
+Type  : Slow 1200mV 0C Model Hold 'op_controller:inst|en_count'
+Slack : 3.088
 TNS   : 0.000
 
-Type  : Fast Model Hold 'op_controller:inst|en_count'
-Slack : 2.234
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_fpga_50MHz'
+Slack : -3.000
+TNS   : -32.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'div_freq_30KHz:inst3|clk_30KHz'
+Slack : -1.000
+TNS   : -17.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'div_freq_1KHz:inst2|clk_1KHz'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'op_controller:inst|en_count'
+Slack : 0.432
 TNS   : 0.000
 
-Type  : Fast Model Minimum Pulse Width 'not_clk_fpga_50MHz'
-Slack : -1.380
-TNS   : -18.380
+Type  : Fast 1200mV 0C Model Setup 'op_controller:inst|en_count'
+Slack : -2.282
+TNS   : -2.282
 
-Type  : Fast Model Minimum Pulse Width 'clk_fpga_50MHz'
-Slack : -1.380
-TNS   : -14.380
+Type  : Fast 1200mV 0C Model Setup 'clk_fpga_50MHz'
+Slack : -1.503
+TNS   : -31.659
 
-Type  : Fast Model Minimum Pulse Width 'op_controller:inst|en_count'
-Slack : 0.500
+Type  : Fast 1200mV 0C Model Setup 'div_freq_1KHz:inst2|clk_1KHz'
+Slack : -0.369
+TNS   : -2.845
+
+Type  : Fast 1200mV 0C Model Setup 'div_freq_30KHz:inst3|clk_30KHz'
+Slack : -0.094
+TNS   : -0.215
+
+Type  : Fast 1200mV 0C Model Hold 'div_freq_30KHz:inst3|clk_30KHz'
+Slack : -0.183
+TNS   : -1.367
+
+Type  : Fast 1200mV 0C Model Hold 'clk_fpga_50MHz'
+Slack : -0.145
+TNS   : -0.194
+
+Type  : Fast 1200mV 0C Model Hold 'div_freq_1KHz:inst2|clk_1KHz'
+Slack : 0.178
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'op_controller:inst|en_count'
+Slack : 2.127
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_fpga_50MHz'
+Slack : -3.000
+TNS   : -34.008
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'div_freq_30KHz:inst3|clk_30KHz'
+Slack : -1.000
+TNS   : -17.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'div_freq_1KHz:inst2|clk_1KHz'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'op_controller:inst|en_count'
+Slack : 0.456
 TNS   : 0.000
 
 ------------------------------------------------------------
